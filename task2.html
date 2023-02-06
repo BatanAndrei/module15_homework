@@ -7,6 +7,15 @@
     <title>task 2</title>
 </head>
 <body>
-    
+    <button class="btn" onclick="">Размер экрана</button>
+    <script>
+        const width = window.screen.width;
+        const height = window.screen.height;
+
+      document.querySelector('.btn').addEventListener('click', function() {
+        alert(`Размер экрана: высота ${height}, ширина ${width}`)
+  })
+   </script>  
 </body>
 </html>
+
