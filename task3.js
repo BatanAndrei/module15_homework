@@ -1,7 +1,6 @@
 
 const wsUri = "wss://echo-ws-service.herokuapp.com";
 
-const enter = document.querySelector('.enter')
 const chat = document.getElementById("chat");
 
 const btnSent = document.querySelector('.btn-sent');
@@ -16,11 +15,17 @@ function writeToScreen(message) {
     chat.appendChild(pre);
   }
   
-  btnSent.addEventListener('click', () => {
+    btnSent.addEventListener('click', () => {
     websocket = new WebSocket(wsUri);
     websocket.onopen = function(evt) {
-      writeToScreen("CONNECTED");
+      writeToScreen("");
+
+    const message = document.querySelector('.enter').value;
+    writeToScreen("SENT: " + message);
+    websocket.send(message);
+    console.log(message);
     };
+
     websocket.onclose = function(evt) {
       writeToScreen("DISCONNECTED");
     };
