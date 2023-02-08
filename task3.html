@@ -31,20 +31,50 @@
         height: 300px;
         border: 3px solid blue;
        }
+
+       .info_output {
+        height: 30px;
+        color: grey;
+        font-style: italic;
+      }
+
+      .chat_output {
+      display: flex;
+      flex-direction: column;
+      }
+
+      .chat_output .recieved {
+       margin: 10px;
+       align-self: flex-start;
+      }
+
+      .chat_output .sent {
+       margin: 10px;
+       align-self: flex-end;
+      }
  
     </style>
 </head>
 <body>
+    
     <div class="container">
+
+        <div class="info_output"></div>
+
         <div class="head">
-           <input class="enter" type="text" placeholder="введите текст сообщения">
+
+           <input class="input" type="text" placeholder="введите текст сообщения">
+
            <button type="submit" class="btn-sent">Отправить</button>
-           <button type="submit" class="btn-geo">Гео-локация</button>
+           <button type="submit" id="btn-geo">Гео-локация</button>
+
         </div>
         <div class="content" id="chat">
+            <div class="chat_output"></div>
+        
         </div>
+
     </div>
-    <script src="./task3_Eho.js"></script>
-    <script src="./task3_Geo.js"></script>
+    <script src="./task3.js"></script>
 </body>
 </html>
