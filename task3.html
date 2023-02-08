@@ -44,13 +44,21 @@
       }
 
       .chat_output .recieved {
+        padding: 5px;
          margin: 10px;
          align-self: flex-start;
+         color: white;
+         background-color:blue;
+        border-radius: 5px;
       }
 
       .chat_output .sent {
+        padding: 5px;
          margin: 10px;
          align-self: flex-end;
+         color: white;
+         background-color:green;
+        border-radius: 5px;
       }
 
       .chat_output {
@@ -61,29 +69,36 @@
          flex-wrap: nowrap;
          flex-direction: column;
       }
+
+       p {
+        display: flex;
+        flex-direction: column;
+       }
+
+        .geo-link {
+        padding: 5px;
+        margin: 10px;
+        align-self: flex-end;
+        text-decoration: none;
+        color: white;
+        background-color:brown;
+        border-radius: 5px;
+      }
  
     </style>
 </head>
 <body>
-    
     <div class="container">
-
         <div class="info_output"></div>
-
         <div class="head">
-
            <input class="input" type="text" placeholder="введите текст сообщения">
-
            <button type="submit" class="btn-sent">Отправить</button>
            <button type="submit" id="btn-geo">Гео-локация</button>
-
         </div>
-        <div class="content" id="chat">
-            <div class="chat_output"></div>
-        
+            <div class="content" id="chat">
+                <div class="chat_output"></div>
+            </div>
         </div>
-
-    </div>
     <script src="./task3.js"></script>
 </body>
 </html>
