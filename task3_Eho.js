@@ -10,20 +10,23 @@ let websocket;
 
 function writeToScreen(message) {
     let pre = document.createElement("p");
-    pre.style.wordwrap = "break-word";
+    pre.style.wordWrap = "break-word";
     pre.innerHTML = message;
     chat.appendChild(pre);
   }
   
-    btnSent.addEventListener('click', () => {
     websocket = new WebSocket(wsUri);
-    websocket.onopen = function(evt) {
-      writeToScreen("");
 
-    const message = document.querySelector('.enter').value;
-    writeToScreen("SENT: " + message);
-    websocket.send(message);
-    console.log(message);
+    btnSent.addEventListener('click', () => {
+      const message = document.querySelector('.enter').value;
+      writeToScreen("Отправитель: " + message);
+      websocket.send(message);
+    });
+
+
+   function pageLoaded() {
+    websocket.onopen = function(evt) {
+      writeToScreen("CONNECTED");
     };
 
     websocket.onclose = function(evt) {
@@ -31,7 +34,7 @@ function writeToScreen(message) {
     };
     websocket.onmessage = function(evt) {
       writeToScreen(
-        '<span style="color: blue;">RESPONSE: ' + evt.data+'</span>'
+        '<span style="color: blue;">Сервер: ' + evt.data+'</span>'
       );
     };
     websocket.onerror = function(evt) {
@@ -39,4 +42,6 @@ function writeToScreen(message) {
         '<span style="color: red;">ERROR:</span> ' + evt.data
       );
     };
-  });
+ 
+}
+  document.addEventListener("DOMContentLoaded", pageLoaded);
